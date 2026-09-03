@@ -39,7 +39,7 @@ def add_statuses(data: Any):
     """Add statuses to dictionary from json"""
     data_list = data.get("dataList")
     if not isinstance(data_list, list):
-        return data
+        return
 
     data_list = cast(list[Any], data_list)
     status_item_list = [
@@ -50,4 +50,3 @@ def add_statuses(data: Any):
         id_ = item.get("id")
         if id_ and name:
             status_id_name_map[id_] = name
-    return data
