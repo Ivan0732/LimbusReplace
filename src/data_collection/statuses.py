@@ -2,7 +2,12 @@ import json
 from typing import Any, cast
 
 from data_collection.file_list import file_list
-from data_collection.globals import config, status_id_name_map, target_dir
+from data_collection.globals import (
+    base_status_id_name_map,
+    config,
+    status_id_name_map,
+    target_dir,
+)
 from src.models.json_structure import StatusItem
 from utils.files import collect_files
 
@@ -23,7 +28,7 @@ def find_statuses():
             with open(path, "r", encoding="utf-8-sig") as f:
                 data = json.load(f)
 
-            add_statuses(data)
+            add_statuses(data, filename == "BattleKeywords.json")
             processed_files.append(filename)
 
             with open(path, "w", encoding="utf-8-sig") as f:
@@ -35,13 +40,14 @@ def find_statuses():
     return processed_files
 
 
-def add_statuses(data: Any):
+def add_statuses(data: Any, is_base: bool):
     """Add statuses to dictionary from json"""
     data_list = data.get("dataList")
     if not isinstance(data_list, list):
         return
 
     data_list = cast(list[Any], data_list)
+    # TODO: Add cast check
     status_item_list = [
         cast(StatusItem, item) for item in data_list if isinstance(item, dict)
     ]
@@ -50,3 +56,5 @@ def add_statuses(data: Any):
         id_ = item.get("id")
         if id_ and name:
             status_id_name_map[id_] = name
+        if id_ and name and is_base:
+            base_status_id_name_map[id_] = name

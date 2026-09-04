@@ -26,6 +26,10 @@ status_id_name_map: dict[
     str, str
 ] = {}  # Dictionary of status names to unify status ids and names
 
+base_status_id_name_map: dict[
+    str, str
+] = {}  # Dictionary of base status names from BattleKeywords.json to replace names with ids
+
 skill_tag_ids: list[
     str
 ] = []  # List of skill tag ids (to be ignored in replaces if enabled)
