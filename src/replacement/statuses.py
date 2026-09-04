@@ -28,9 +28,9 @@ def add_status_regex(replace_config: list[ReplaceRule], status_files: list[str])
     status_ids = [re.escape(id_) for id_, _ in ordered_status_names]
 
     pattern_base_names = (
-        r'(?<!<link=")(?<!sprite name=")(?<!\[)\b('
+        r'(?<!<link=")(?<!sprite name=")(?<!<noparse>)(?<!\[)\b('
         + "|".join(base_status_names)
-        + r')\b(?![\]">])'
+        + r')\b(?![\]">])(?!<\/noparse>)'
     )
     pattern_ids = r"\[(" + "|".join(status_ids) + r")\]"
 
