@@ -19,3 +19,6 @@ def split_sentences(data: str):
             final_result.append(part)
 
     return final_result
+
+
+__all__ = ["split_sentences"]

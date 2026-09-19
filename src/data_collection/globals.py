@@ -35,7 +35,7 @@ skill_tag_ids: list[
 ] = []  # List of skill tag ids (to be ignored in replaces if enabled)
 
 
-def init_globals():
+def _init_globals():
     global data_dir, config, source_dir, target_dir, file_list
 
     config = load_config()
@@ -43,6 +43,7 @@ def init_globals():
     # Get base directory
     selected_dir = filedialog.askdirectory()
     if not selected_dir:
+        print("Directory not selected")
         sys.exit(0)
     data_dir = Path(selected_dir)
 
@@ -73,4 +74,17 @@ def load_config() -> Config:
         return json.load(f)
 
 
-init_globals()
+_init_globals()
+
+
+__all__ = [
+    "base_status_id_name_map",
+    "compiled_patterns",
+    "config",
+    "data_dir",
+    "file_list",
+    "skill_tag_ids",
+    "source_dir",
+    "status_id_name_map",
+    "target_dir",
+]

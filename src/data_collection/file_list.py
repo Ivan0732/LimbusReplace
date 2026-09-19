@@ -1,7 +1,7 @@
 import json
 
 from data_collection.globals import file_list, skill_tag_ids, target_dir
-from src.models.json_structure import SkillTag
+from models.json_structure import SkillTag
 
 
 def process_file_list():
@@ -21,3 +21,6 @@ def process_file_list():
         data_list: list[SkillTag] = data["dataList"]
         for item in data_list:
             skill_tag_ids.append(item["id"])
+
+
+__all_ = ["process_file_list"]

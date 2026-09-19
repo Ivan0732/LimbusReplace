@@ -5,7 +5,7 @@ from pathlib import Path
 from data_collection.globals import config, source_dir, target_dir
 
 
-def move_fonts():
+def _move_fonts():
     # Path to the target directory for fonts
     font_target_dir = Path(target_dir) / "Font"
 
@@ -25,7 +25,7 @@ def move_fonts():
     shutil.copytree(src, font_target_dir, dirs_exist_ok=True)
 
 
-def copy_source_files():
+def _copy_source_files():
     """Recursive file copy from source to target"""
     prefix = config["moveFiles"]["sourceTranslation"].upper() + "_"
     for root, _, files in os.walk(source_dir):
@@ -48,7 +48,10 @@ def copy_source_files():
 
 def move_translation_files():
     try:
-        copy_source_files()
-        move_fonts()
+        _copy_source_files()
+        _move_fonts()
     except Exception:
         print("Failed to copy files")
+
+
+__all__ = ["move_translation_files"]

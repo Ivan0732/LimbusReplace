@@ -1,10 +1,10 @@
 import json
 from typing import Any, cast
 
-from data_collection.file_list import file_list
 from data_collection.globals import (
     base_status_id_name_map,
     config,
+    file_list,
     status_id_name_map,
     target_dir,
 )
@@ -13,7 +13,7 @@ from utils.files import collect_files
 
 
 def find_statuses():
-    """Find files that supposed to contain statuses according to config"""
+    """Find files that supposed to contain statuses according to config and add to dictionary"""
     ignored_files = config["statuses"]["ignoredFiles"]
     processed_files: list[str] = []
 
@@ -28,7 +28,7 @@ def find_statuses():
             with open(path, "r", encoding="utf-8-sig") as f:
                 data = json.load(f)
 
-            add_statuses(data, filename == "BattleKeywords.json")
+            _add_statuses(data, filename == "BattleKeywords.json")
             processed_files.append(filename)
 
             with open(path, "w", encoding="utf-8-sig") as f:
@@ -40,7 +40,7 @@ def find_statuses():
     return processed_files
 
 
-def add_statuses(data: Any, is_base: bool):
+def _add_statuses(data: Any, is_base: bool):
     """Add statuses to dictionary from json"""
     data_list = data.get("dataList")
     if not isinstance(data_list, list):
@@ -58,3 +58,6 @@ def add_statuses(data: Any, is_base: bool):
             status_id_name_map[id_] = name
         if id_ and name and is_base:
             base_status_id_name_map[id_] = name
+
+
+__all__ = ["find_statuses"]

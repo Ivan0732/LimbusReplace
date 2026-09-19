@@ -121,3 +121,6 @@ def create_default(typed_dict_class: type[T]) -> T:
             ) from e
 
     return result  # type: ignore[return-value]
+
+
+__all__ = ["DefaultTypeError", "create_default"]

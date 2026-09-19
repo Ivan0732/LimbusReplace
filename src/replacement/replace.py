@@ -4,10 +4,15 @@ import re
 from concurrent.futures import ThreadPoolExecutor
 from typing import cast
 
-from data_collection.file_list import file_list
-from data_collection.globals import compiled_patterns, config, skill_tag_ids, target_dir
+from data_collection.globals import (
+    compiled_patterns,
+    config,
+    file_list,
+    skill_tag_ids,
+    target_dir,
+)
+from models.json_structure import JSONType, ReplaceRule
 from replacement.statuses import add_status_regex
-from src.models.json_structure import JSONType, ReplaceRule
 from utils.files import collect_files
 from utils.parsing import split_sentences
 

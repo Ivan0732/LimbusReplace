@@ -73,3 +73,6 @@ def add_status_regex(replace_config: list[ReplaceRule], status_files: list[str])
     replace_config.append(status_sprite_remove)
     replace_config.append(base_status_name_replace)
     replace_config.append(status_id_replace)
+
+
+__all__ = ["add_status_regex"]
