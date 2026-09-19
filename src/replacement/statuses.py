@@ -28,9 +28,8 @@ def add_status_regex(replace_config: list[ReplaceRule], status_files: list[str])
     status_ids = [re.escape(id_) for id_, _ in ordered_status_names]
 
     pattern_base_names = (
-        r'(?<!<link=")(?<!sprite name=")(?<!<noparse>)(?<!\[)\b('
-        + "|".join(base_status_names)
-        + r')\b(?![\]">])(?!<\/noparse>)'
+        r'(?<!<link=")(?<!sprite name=")(?<!<noparse>)(?<!\[)\b(' + "|".join(base_status_names) +
+        r')\b(?![\]">])(?!<\/noparse>)'
     )
     pattern_ids = r"\[(" + "|".join(status_ids) + r")\]"
 
@@ -50,24 +49,31 @@ def add_status_regex(replace_config: list[ReplaceRule], status_files: list[str])
 
     status_sprite_remove: ReplaceRule = {
         "fields": ["desc"],
-        "changes": [
-            {
-                "from": r"<sprite [^>]+><color[^>]+><u><link[^>]+>([^>]+)</color></link></u>",
-                "to": r"\1",
-                "regex": True,
-            }
-        ],
-        "ignoredFiles": status_files,
+        "changes": [{
+            "from": r"<sprite [^>]+><color[^>]+><u><link[^>]+>([^>]+)</color></link></u>",
+            "to": r"\1",
+            "regex": True,
+        }],
+        "ignoredFiles":
+        status_files,
     }
     # Replace only status names from BaseKeywords.json due to them being used without id sometimes for some reason
     base_status_name_replace: ReplaceRule = {
         "fields": ["desc"],
-        "changes": [{"from": pattern_base_names, "to": repl_name, "regex": True}],
+        "changes": [{
+            "from": pattern_base_names,
+            "to": repl_name,
+            "regex": True
+        }],
         "ignoredFiles": status_files,
     }
     status_id_replace: ReplaceRule = {
         "fields": ["desc"],
-        "changes": [{"from": pattern_ids, "to": repl_id, "regex": True}],
+        "changes": [{
+            "from": pattern_ids,
+            "to": repl_id,
+            "regex": True
+        }],
         "ignoredFiles": status_files,
     }
     replace_config.append(status_sprite_remove)

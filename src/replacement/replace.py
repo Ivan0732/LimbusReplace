@@ -4,13 +4,7 @@ import re
 from concurrent.futures import ThreadPoolExecutor
 from typing import cast
 
-from data_collection.globals import (
-    compiled_patterns,
-    config,
-    file_list,
-    skill_tag_ids,
-    target_dir,
-)
+from data_collection.globals import compiled_patterns, config, file_list, skill_tag_ids, target_dir
 from models.json_structure import JSONType, ReplaceRule
 from replacement.statuses import add_status_regex
 from utils.files import collect_files
@@ -60,13 +54,8 @@ def process_replaces(status_files: list[str]):
 def _get_replacement_files():
     if config["limitedDirectories"]:
         return collect_files(
-            file_list,
-            "skill",
-            "passive",
-            "buf",
-            "buffAbilities",
-            "keyword",
-            "egoGifts",
+            file_list, "skill", "passive", "buf", "buffAbilities", "keyword", "egoGifts",
+            "buffAbilities", "keyword", "egoGifts"
         )
     else:
         return list(filter(lambda x: x.endswith(".json"), os.listdir(target_dir)))
@@ -95,14 +84,10 @@ def replace_in_string(data: str, replace_config: ReplaceRule):
     skill_tag_persistence: bool = config["skillTagPersistence"]
     sentences = split_sentences(data)
     processed_sentences: list[str] = []
-    skill_tag_regex = re.compile(
-        r"^(?:<[^>]+>\s*)*((?:\[(?:" + "|".join(skill_tag_ids) + r")])+)"
-    )
+    skill_tag_regex = re.compile(r"^(?:<[^>]+>\s*)*((?:\[(?:" + "|".join(skill_tag_ids) + r")])+)")
 
     for sentence in sentences:
-        skill_tag_match = (
-            skill_tag_regex.match(sentence) if skill_tag_persistence else None
-        )
+        skill_tag_match = skill_tag_regex.match(sentence) if skill_tag_persistence else None
 
         for change in replace_config.get("changes", []):
             from_pattern = change["from"]
@@ -115,14 +100,10 @@ def replace_in_string(data: str, replace_config: ReplaceRule):
                     raise Exception("Pattern not compiled")
                 try:
                     if skill_tag_match:
-                        first_part = sentence[: skill_tag_match.end()]
-                        rest_of_sentence = sentence[skill_tag_match.end() :]
+                        first_part = sentence[:skill_tag_match.end()]
+                        rest_of_sentence = sentence[skill_tag_match.end():]
                         rest_of_sentence = pattern.sub(to_pattern, rest_of_sentence)
-                        sentence = (
-                            f"{first_part}{rest_of_sentence}"
-                            if rest_of_sentence
-                            else first_part
-                        )
+                        sentence = f"{first_part}{rest_of_sentence}" if rest_of_sentence else first_part
                     else:
                         sentence = pattern.sub(to_pattern, sentence)
                 except Exception as e:

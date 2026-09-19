@@ -5,7 +5,6 @@ from typing import Any, Literal, NotRequired, TypedDict
 # === COMMON TYPE FOR UNKNOWN JSON ===
 JSONType = dict[str, Any] | list[Any] | str | int | float | bool | None
 
-
 # === CONFIG ===
 _ReplaceChangeRegex = TypedDict(
     "_ReplaceChangeRegex",

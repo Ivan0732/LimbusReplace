@@ -1,13 +1,7 @@
 import json
 from typing import Any, cast
 
-from data_collection.globals import (
-    base_status_id_name_map,
-    config,
-    file_list,
-    status_id_name_map,
-    target_dir,
-)
+from data_collection.globals import base_status_id_name_map, config, file_list, status_id_name_map, target_dir
 from src.models.json_structure import StatusItem
 from utils.files import collect_files
 
@@ -48,9 +42,7 @@ def _add_statuses(data: Any, is_base: bool):
 
     data_list = cast(list[Any], data_list)
     # TODO: Add cast check
-    status_item_list = [
-        cast(StatusItem, item) for item in data_list if isinstance(item, dict)
-    ]
+    status_item_list = [cast(StatusItem, item) for item in data_list if isinstance(item, dict)]
     for item in status_item_list:
         name = item.get("name")
         id_ = item.get("id")

@@ -56,8 +56,7 @@ def _get_default_value(field_type: type, field_name: str = "<unknown>") -> Any:
         args = get_args(field_type)
         if args:
             return tuple(
-                _get_default_value(arg, f"{field_name}[{i}]")
-                for i, arg in enumerate(args)
+                _get_default_value(arg, f"{field_name}[{i}]") for i, arg in enumerate(args)
             )
         return ()
 

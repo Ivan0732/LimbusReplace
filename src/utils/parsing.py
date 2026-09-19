@@ -6,8 +6,7 @@ def split_sentences(data: str):
     # Split by ". "
     sentences = re.split(r"(?<=\.) ", data)
     sentences_with_space = [
-        sentence + (" " if i < len(sentences) - 1 else "")
-        for i, sentence in enumerate(sentences)
+        sentence + (" " if i < len(sentences) - 1 else "") for i, sentence in enumerate(sentences)
     ]
     # Split by \n
     final_result: list[str] = []

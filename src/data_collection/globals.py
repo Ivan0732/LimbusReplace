@@ -8,31 +8,23 @@ from src.models.json_structure import Config, FileList
 from utils.typedDictDefault import create_default
 
 # ===Folder navigation===
-data_dir: Path = Path()  # LimbusCompany_Data path
+data_dir = Path()  # LimbusCompany_Data path
 source_dir: Path = Path()  # Path to original translation
 target_dir: Path = Path()  # Path to resulting translation
-file_list: FileList = create_default(
-    FileList
-)  # File with categorization of other files
+file_list: FileList = create_default(FileList)  # File with categorization of other files
 
 # ===Reusable objects===
 config = None  # Config file json
 
-compiled_patterns: dict[
-    str, Pattern[str]
-] = {}  # Dictionary of compiled regex patterns to boost performance
+compiled_patterns: dict[str, Pattern[str]] = {
+}  # Dictionary of compiled regex patterns to boost performance
 
-status_id_name_map: dict[
-    str, str
-] = {}  # Dictionary of status names to unify status ids and names
+status_id_name_map: dict[str, str] = {}  # Dictionary of status names to unify status ids and names
 
-base_status_id_name_map: dict[
-    str, str
-] = {}  # Dictionary of base status names from BattleKeywords.json to replace names with ids
+base_status_id_name_map: dict[str, str] = {
+}  # Dictionary of base status names from BattleKeywords.json to replace names with ids
 
-skill_tag_ids: list[
-    str
-] = []  # List of skill tag ids (to be ignored in replaces if enabled)
+skill_tag_ids: list[str] = []  # List of skill tag ids (to be ignored in replaces if enabled)
 
 
 def _init_globals():
@@ -49,20 +41,11 @@ def _init_globals():
 
     # Build paths using pathlib
     source_dir = (
-        data_dir
-        / "Assets"
-        / "Resources_moved"
-        / "Localize"
-        / config["moveFiles"]["sourceTranslation"]
+        data_dir / "Assets" / "Resources_moved" / "Localize" /
+        config["moveFiles"]["sourceTranslation"]
     )
     target_dir = data_dir / "Lang" / config["moveFiles"]["translationName"]
-    file_list_path = (
-        data_dir
-        / "Assets"
-        / "Resources_moved"
-        / "Localize"
-        / "RemoteLocalizeFileList.json"
-    )
+    file_list_path = data_dir / "Assets" / "Resources_moved" / "Localize" / "RemoteLocalizeFileList.json"
 
     with open(file_list_path, "r", encoding="utf-8-sig") as f:
         file_list = json.load(f)
@@ -76,15 +59,7 @@ def load_config() -> Config:
 
 _init_globals()
 
-
 __all__ = [
-    "base_status_id_name_map",
-    "compiled_patterns",
-    "config",
-    "data_dir",
-    "file_list",
-    "skill_tag_ids",
-    "source_dir",
-    "status_id_name_map",
-    "target_dir",
+    "base_status_id_name_map", "compiled_patterns", "config", "data_dir", "file_list",
+    "skill_tag_ids", "source_dir", "status_id_name_map", "target_dir"
 ]

@@ -36,7 +36,7 @@ def _copy_source_files():
 
         for file in files:
             should_remove_prefix = file.startswith(prefix) and file.endswith(".json")
-            new_filename = file[len(prefix) :] if should_remove_prefix else file
+            new_filename = file[len(prefix):] if should_remove_prefix else file
 
             source_file_path = os.path.join(root, file)
             target_file_path = target_path / new_filename
