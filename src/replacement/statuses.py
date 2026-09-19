@@ -29,7 +29,7 @@ def add_status_regex(replace_config: list[ReplaceRule], status_files: list[str])
 
     pattern_base_names = (
         r'(?<!<link=")(?<!sprite name=")(?<!<noparse>)(?<!\[)\b(' + "|".join(base_status_names) +
-        r')\b(?![\]">])(?!<\/noparse>)'
+        r')\b(?![\]">])(?!<\/noparse>)(?!<\/noparse>)(?!\[TabExplain\])'
     )
     pattern_ids = r"\[(" + "|".join(status_ids) + r")\]"
 
