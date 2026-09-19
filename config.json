@@ -46,7 +46,13 @@
       "LivingSpecimenPersonality": "LivingSpecimenTheRings",
       "BearClawWoundAlly": "BearClawWound",
       "EagleClawWoundAlly": "EagleClawWound",
-      "VengeanceBookHeathcliff": "VengeanceBookSinclair"
+      "VengeanceBookHeathcliff": "VengeanceBookSinclair",
+      "DianxueHongLu": "DianxueDonQuixote",
+      "RisingMadnessSisyphe": "RisingMadnessRouge",
+      "RisingMadnessSisyphe2nd": "RisingMadnessRouge2nd",
+      "ChargeNoirAlly": "ChargeNoir",
+      "RealisationAlly": "Realisation",
+      "NoirSuitAlly": "NoirSuit"
     }
   },
   "skillTagPersistence": true,
