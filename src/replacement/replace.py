@@ -21,11 +21,7 @@ def process_replaces(status_files: list[str]):
     file_count = len(files)
     processed_count = 0
 
-    # Pattern compilation for performance boost
-    for replace in replace_config:
-        for change in replace["changes"]:
-            if change.get("regex", False) and change["from"] not in compiled_patterns:
-                compiled_patterns[change["from"]] = re.compile(rf"{change['from']}")
+    _pattern_compilation(replace_config)
 
     for filename in files:
         path = target_dir / filename
@@ -59,6 +55,18 @@ def _get_replacement_files():
         )
     else:
         return list(filter(lambda x: x.endswith(".json"), os.listdir(target_dir)))
+
+
+def _pattern_compilation(replace_config: list[ReplaceRule]):
+    "Pattern compilation for performance boost"
+    regex_changes = [
+        change for replace in replace_config for change in replace.get("changes", [])
+        if change.get("regex")
+    ]
+    for change in regex_changes:
+        pattern = change["from"]
+        if pattern not in compiled_patterns:
+            compiled_patterns[pattern] = re.compile(pattern)
 
 
 def recursive_replace(data: JSONType, replace_list: list[ReplaceRule]):
