@@ -7,11 +7,7 @@
   "replaceFilesEnabled": true,
   "statuses": {
     "enabled": true,
-    "ignoredFiles": [
-      "SkillTag.json",
-      "AttributeText.json",
-      "EgoGiftCategory.json"
-    ],
+    "ignoredFiles": [ "SkillTag.json", "AttributeText.json", "EgoGiftCategory.json" ],
     "spriteFixes": {
       "PhantomIncisionID": "PhantomIncision",
       "SojiRyoshuEchoPast": "TimeEntangleUnstable",
@@ -19,6 +15,7 @@
       "PhantomIncisionTotalID": "PhantomIncisionTotal",
       "SojiRyoshuShin": "LittleFingerBoss_Shin",
       "LittleFingerID": "DicipleLittleFinger",
+
       "YisangWeapon01Hatchet": "RienWeapon01Hatchet",
       "YisangWeapon02Stiletto": "RienWeapon02Stiletto",
       "YisangWeapon03Greatsword": "RienWeapon03Greatsword",
@@ -28,28 +25,38 @@
       "YisangWeapon07Lance": "RienWeapon07Lance",
       "YisangWeapon08Chain": "RienWeapon08Chain",
       "YisangWeapon09Scythe": "RienWeapon09Scythe",
+
       "IndexPrescriptYi_0": "IndexPrescriptDon_0",
       "IndexPrescriptYi_1": "IndexPrescriptDon_1",
       "IndexPrescriptYi_2": "IndexPrescriptDon_2",
       "IndexPrescriptYi_3": "IndexPrescriptDon_3",
+
       "Shin_IndexFingerYisang": "Blandishment_Shin",
       "Shin_Rien": "Blandishment_Shin",
       "KarmaOfIndexRien": "KarmaOfIndexAlly",
       "UnlockBuff_Rien1": "UnlockBuff_1",
       "UnlockBuff_Rien2": "UnlockBuff_2",
       "UnlockBuff_Rien3": "UnlockBuff_3",
+
       "DelusionGregBigBird": "DelusionHohenheimBigBird",
       "LanternGregBigBird": "LanternHohenheimBigBird",
+
       "SelfChargeAlly": "SelfCharge",
       "ScratchesHurtID": "ScratchesHurt",
+
       "TibiaPersonality": "MineTheRings",
       "LivingSpecimenPersonality": "LivingSpecimenTheRings",
+
       "BearClawWoundAlly": "BearClawWound",
       "EagleClawWoundAlly": "EagleClawWound",
+
       "VengeanceBookHeathcliff": "VengeanceBookSinclair",
+
       "DianxueHongLu": "DianxueDonQuixote",
+
       "RisingMadnessSisyphe": "RisingMadnessRouge",
       "RisingMadnessSisyphe2nd": "RisingMadnessRouge2nd",
+
       "ChargeNoirAlly": "ChargeNoir",
       "RealisationAlly": "Realisation",
       "NoirSuitAlly": "NoirSuit"
@@ -59,23 +66,12 @@
   "limitedDirectories": true,
   "replace": [
     {
-      "fields": [
-        "name"
-      ],
-      "changes": [
-        {
-          "from": "On ",
-          "to": ""
-        }
+      "fields": [ "name" ],
+      "changes": [ { "from": "On ", "to": "" }
       ]
     },
     {
-      "fields": [
-        "desc",
-        "summary",
-        "lowMoraleDescription",
-        "panicDescription"
-      ],
+      "fields": [ "desc", "summary", "lowMoraleDescription", "panicDescription" ],
       "changes": [
         {
           "from": "’",
