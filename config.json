@@ -7,7 +7,7 @@
   "replaceFilesEnabled": true,
   "statuses": {
     "enabled": true,
-    "ignoredFiles": [ "SkillTag.json", "AttributeText.json", "EgoGiftCategory.json" ],
+    "ignoredFiles": [ ],
     "spriteFixes": {
       "PhantomIncisionID": "PhantomIncision",
       "SojiRyoshuEchoPast": "TimeEntangleUnstable",
