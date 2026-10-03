@@ -131,6 +131,11 @@
         },
         {
           "regex": true,
+          "from": "(\\d+) or more",
+          "to": "\\1+"
+        },
+        {
+          "regex": true,
           "from": "If target has ([^,\n:→]+)[,:]",
           "to": "Target: \\1 →"
         },
@@ -290,11 +295,6 @@
         },
         {
           "regex": true,
-          "from": "[Ii]f (?:the unit's|this unit's|user's) Speed is faster than (?:the )?(main )?(?:target's|target) by ([^,\n:→]+) or more([^,\n:]*)[,:]",
-          "to": "Faster than \\1target by \\2+\\3 →"
-        },
-        {
-          "regex": true,
           "from": "[Ii]f (?:the unit's|this unit's|user's) Speed is faster than (?:the )?(main )?(?:target's|target) by ([^,\n:→]+)\\+([^,\n:]*)[,:]",
           "to": "Faster than \\1target by \\2+\\3 →"
         },
@@ -302,11 +302,6 @@
           "regex": true,
           "from": "[Ii]f (?:the unit's|this unit's|user's) Speed is faster than (?:the )?(main )?(?:target's|target)",
           "to": "Faster than \\1target →"
-        },
-        {
-          "regex": true,
-          "from": "[Ii]f (?:the unit's|this unit's|user's) Speed is faster than (?:the )?(main )?(?:target's|target) by ([^,\n:→]+) or more",
-          "to": "Faster than \\1target by \\2+ →"
         },
         {
           "regex": true,
@@ -324,7 +319,7 @@
         },
         {
           "regex": true,
-          "from": "[Ii]f (main )?(?:target's|target) Speed is slower than (?:the unit's|this unit's|user's) by ([^,\n:→]+)\\+",
+          "from": "[Ii]f (main )?(?:target's|target) Speed is slower than (?:the unit's|this unit's|user's) by ([^,\n:→]+)\\+[,:]",
           "to": "Faster than \\1target by \\2+ →"
         },
         {
@@ -399,11 +394,6 @@
           "regex": true,
           "from": "\\+(\\d+) more chance to Reuse Coin",
           "to": "Reuse Coin chance: \\1"
-        },
-        {
-          "regex": true,
-          "from": "(\\d+) or more",
-          "to": "\\1+"
         },
         {
           "regex": true,
