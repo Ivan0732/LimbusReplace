@@ -290,12 +290,12 @@
         },
         {
           "regex": true,
-          "from": "[Ii]f (?:the unit's|this unit's|user's) Speed is faster than (?:the )?(main )?(?:target's|target) by (\\S+) or more([^,\n:]*)[,:]",
+          "from": "[Ii]f (?:the unit's|this unit's|user's) Speed is faster than (?:the )?(main )?(?:target's|target) by ([^,\n:→]+) or more([^,\n:]*)[,:]",
           "to": "Faster than \\1target by \\2+\\3 →"
         },
         {
           "regex": true,
-          "from": "[Ii]f (?:the unit's|this unit's|user's) Speed is faster than (?:the )?(main )?(?:target's|target) by (\\S+)\\+([^,\n:]*)[,:]",
+          "from": "[Ii]f (?:the unit's|this unit's|user's) Speed is faster than (?:the )?(main )?(?:target's|target) by ([^,\n:→]+)\\+([^,\n:]*)[,:]",
           "to": "Faster than \\1target by \\2+\\3 →"
         },
         {
@@ -305,12 +305,12 @@
         },
         {
           "regex": true,
-          "from": "[Ii]f (?:the unit's|this unit's|user's) Speed is faster than (?:the )?(main )?(?:target's|target) by (\\S+) or more",
+          "from": "[Ii]f (?:the unit's|this unit's|user's) Speed is faster than (?:the )?(main )?(?:target's|target) by ([^,\n:→]+) or more",
           "to": "Faster than \\1target by \\2+ →"
         },
         {
           "regex": true,
-          "from": "[Ii]f (?:the unit's|this unit's|user's) Speed is faster than (?:the )?(main )?(?:target's|target) by (\\S+)\\+",
+          "from": "[Ii]f (?:the unit's|this unit's|user's) Speed is faster than (?:the )?(main )?(?:target's|target) by ([^,\n:→]+)\\+",
           "to": "Faster than \\1target by \\2+ →"
         },
         {
@@ -324,7 +324,7 @@
         },
         {
           "regex": true,
-          "from": "[Ii]f (main )?(?:target's|target) Speed is slower than (?:the unit's|this unit's|user's) by (\\S+)\\+[,:]",
+          "from": "[Ii]f (main )?(?:target's|target) Speed is slower than (?:the unit's|this unit's|user's) by ([^,\n:→]+)\\+",
           "to": "Faster than \\1target by \\2+ →"
         },
         {
@@ -354,13 +354,18 @@
         },
         {
           "regex": true,
-          "from": "(?:1 )?(ally|allies) (?:with |that has )?(?:the )?(most|highest|lowest|least) (?:current )?(Max )?(HP|SP)",
+          "from": "(?i)(?:1 )?(ally|allies) (?:with |that (?:has|have) )?(?:the )?(most|highest|lowest|least) (?:current )?(Max )?(HP|SP)\\b",
           "to": "\\2 \\3\\4 \\1"
         },
         {
           "regex": true,
-          "from": "(?:1 )?(ally|allies) (?:with |that has )?(?:the )?(slowest|fastest) Speed",
+          "from": "(?i)(?:1 )?(ally|allies) (?:with |that (?:has|have) )?(?:the )?(slowest|fastest) Speed",
           "to": "\\2 \\1"
+        },
+        {
+          "regex": true,
+          "from": "(?i)(?:1 )?(ally|allies) (?:with |that (?:has|have) )?(?:the )?highest Speed",
+          "to": "fastest \\1"
         },
         {
           "regex": true,
