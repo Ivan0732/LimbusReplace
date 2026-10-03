@@ -46,6 +46,7 @@
 
       "TibiaPersonality": "MineTheRings",
       "LivingSpecimenPersonality": "LivingSpecimenTheRings",
+      "FasciaPersonality": "BoneBladeTheRings",
 
       "BearClawWoundAlly": "BearClawWound",
       "EagleClawWoundAlly": "EagleClawWound",
@@ -59,7 +60,14 @@
 
       "ChargeNoirAlly": "ChargeNoir",
       "RealisationAlly": "Realisation",
-      "NoirSuitAlly": "NoirSuit"
+      "NoirSuitAlly": "NoirSuit",
+
+      "SupportEnemy": "SupportAlly",
+      "ChargeKhakiAlly": "ChargeKhaki",
+      "NoirScissorAlly": "ScissorsMark",
+      "NoirNail": "NoirNailDonQuixote",
+
+      "NoirScissorCut": "LargeTailoringShears"
     }
   },
   "skillTagPersistence": true,
