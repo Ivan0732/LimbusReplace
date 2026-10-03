@@ -126,7 +126,7 @@
         },
         {
           "regex": true,
-          "from": "(type|types) of (ailment|ailments)",
+          "from": "(type|types) of (ailments|ailment)",
           "to": "ailment \\1"
         },
         {
@@ -210,17 +210,17 @@
         },
         {
           "regex": true,
-          "from": "At (\\d+)(%)?\\+ (HP|SP)[,:]",
+          "from": "At (-?\\d+)(%)?\\+ (HP|SP)[,:]",
           "to": "Self: \\3 >= \\1\\2 →"
         },
         {
           "regex": true,
-          "from": "At (\\d+)(%)? or less (HP|SP)[,:]",
+          "from": "At (-?\\d+)(%)? or less (HP|SP)[,:]",
           "to": "Self: \\3 <= \\1\\2 →"
         },
         {
           "regex": true,
-          "from": "At (\\d+)(%)? or more (HP|SP)[,:]",
+          "from": "At (-?\\d+)(%)? or more (HP|SP)[,:]",
           "to": "Self: \\3 >= \\1\\2 →"
         },
         {
@@ -250,7 +250,7 @@
         },
         {
           "regex": true,
-          "from": "At (\\d+)\\+ ([^,\n:→]+)[,:]",
+          "from": "At (-?\\d+)\\+ ([^,\n:→]+)[,:]",
           "to": "Self: \\1+ \\2 →"
         },
         {
@@ -280,12 +280,12 @@
         },
         {
           "regex": true,
-          "from": "deal (.)?(\\d+)(.)?(?: more)? Damage",
+          "from": "deal (.)?(-?\\d+)(.)?(?: more)? Damage",
           "to": "Damage \\1\\2\\3"
         },
         {
           "regex": true,
-          "from": "The final Coin deals (.)?(\\d+)(.)?(?: more)? Damage",
+          "from": "The final Coin deals (.)?(-?\\d+)(.)?(?: more)? Damage",
           "to": "Final Coin: Damage \\1\\2\\3"
         },
         {
