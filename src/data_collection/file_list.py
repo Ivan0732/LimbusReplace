@@ -1,7 +1,6 @@
 import json
 
 from data_collection.globals import file_list, skill_tag_ids, target_dir
-from models.json_structure import SkillTag
 
 
 def process_file_list():
@@ -11,16 +10,14 @@ def process_file_list():
     Gets skillTag files to use for skillTagPersistence later
     """
 
-    skill_tag_list: list[str] = file_list["skillTag"]
-
-    for filename in skill_tag_list:
+    for filename in file_list["skillTag"]:
         path = target_dir / (filename + ".json")
 
         with open(path, "r", encoding="utf-8-sig") as f:
             data = json.load(f)
-        data_list: list[SkillTag] = data["dataList"]
-        for item in data_list:
-            skill_tag_ids.append(item["id"])
+
+        ids = [item["id"] for item in data["dataList"]]
+        skill_tag_ids.extend(ids)
 
 
 __all_ = ["process_file_list"]
