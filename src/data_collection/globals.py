@@ -52,8 +52,8 @@ def _init_globals():
 
 
 def load_config() -> Config:
-    """Load config from config.json"""
-    with open("config.json", "r", encoding="utf-8-sig") as f:
+    """Load config from config.jsonc"""
+    with open("config.jsonc", "r", encoding="utf-8-sig") as f:
         return json.load(f)
 
 
