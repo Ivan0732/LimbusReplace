@@ -12,11 +12,9 @@ def find_statuses():
     processed_files: list[str] = []
 
     status_files = collect_files(file_list, "keyword", "buf")
+    unignored_files = [file for file in status_files if file not in ignored_files]
 
-    for filename in status_files:
-        if filename in ignored_files:
-            continue
-
+    for filename in unignored_files:
         path = target_dir / filename
         try:
             with open(path, "r", encoding="utf-8-sig") as f:
